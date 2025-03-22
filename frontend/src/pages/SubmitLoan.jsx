@@ -3,7 +3,9 @@ import { LoanContext } from "../context/LoanContext";
 import apiRequest from "../components/common/authApi";
 import { useNavigate } from "react-router-dom";
 import { CheckIcon } from "../components/common/assets";
-import Btn from "../components/common/Btn";
+
+import Button from "../components/common/Button";
+
 import { showToast } from "../utils/toastUtils";
 import { API_BASE_URL } from "../config";
 
@@ -65,7 +67,7 @@ const SubmitLoan = () => {
   return (
     <div>
       {error && <div className="text-red-600 mb-4">{error}</div>}
-      <Btn label="Submit Loan" onClick={handleSubmit} icon={<CheckIcon />} />
+      <Button text="Submit Loan" onClick={handleSubmit} />
     </div>
   );
 };
