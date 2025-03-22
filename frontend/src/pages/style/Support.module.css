@@ -1,0 +1,225 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  max-height: calc(100vh - var(--header-height));
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+h2 {
+  color: #212121;
+  font-size: var(--font-size-medium);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+}
+
+.formContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #212121;
+}
+
+.select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius-medium);
+  font-size: 1rem;
+}
+
+.textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius-medium);
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.ticketsContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ticketsButton {
+  display: flex; /* Add flex display */
+  justify-content: flex-end; /* Align content to the right */
+  width: 300px;
+}
+.ticketsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ticketCard {
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius-medium);
+  padding: 1rem;
+}
+
+.ticketHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ticketId {
+  font-weight: bold;
+  color: #666;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 30%;
+  font-size: 0.875rem;
+}
+
+.open {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.inprogress {
+  background: #fff3e0;
+  color: #ff8000;
+}
+
+.resolved {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.ticketBody h3 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.ticketFooter {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.comments {
+  font-style: italic;
+}
+
+.noTickets {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Darker background for better visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlayContent {
+  background-color: var(
+    --color-background,
+    #fff
+  ); /* Default white if variable is not defined */
+  padding: 1rem;
+  border-radius: var(--border-radius-medium);
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.overlayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0; /* Ensures the header stays at the top */
+  background-color: var(
+    --color-background,
+    #fff
+  ); /* Ensure background color is set */
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: red; /* Default text color */
+}
+
+.closeButton:hover {
+  opacity: 0.8;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.createdDate {
+  font-weight: bold;
+  color: #333; /* Change to your preferred color */
+  font-size: 0.9em; /* Adjust the font size as needed */
+  text-align: left;
+}
+
+.ticketFooter {
+  display: flex;
+  flex-direction: column; /* Change to 'row' if you want horizontal columns */
+  gap: 10px; /* Adjust spacing between columns */
+}
+.comments {
+  font-size: var(--font-size-small);
+}
+
+.createdDate,
+.comments {
+  flex: 1; /* Ensures equal space distribution */
+}

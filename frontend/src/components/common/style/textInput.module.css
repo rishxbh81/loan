@@ -1,0 +1,37 @@
+.inputForm {
+  border-radius: var(--border-radius-small);
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  transition: 0.2s ease-in-out;
+  width: 100%;
+  border: 1px solid var(--color-border-primary);
+  margin-top: 10px;
+  color: black;
+  resize: vertical; /* Enables resizing */
+  overflow: hidden; /* Prevents scrollbar when resizing */
+}
+.textInput {
+  padding: 5px;
+}
+.CustomTextInput {
+  padding: 5px;
+}
+.CustomLabel {
+  font-size: var(--font-size-medium);
+  color: #212121;
+  margin-bottom: 5px;
+}
+.input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-size: var(--font-size-medium);
+  align-items: center;
+  font-weight: var(--font-weight-light);
+}
+
+.input:focus {
+  outline: none;
+}

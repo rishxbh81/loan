@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+* {
+  font-family: "DM Sans", sans-serif;
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+:root {
+  --header-height: 60px;
+  /* Default (Light Mode) Variables */
+  --color-bg-primary: #f9f9f9;
+  --color-bg-secondary: #eeeeee;
+  --color-bg-tertiary: #e0e0e0;
+
+  --color-text-primary: #0f0f0f;
+  --color-text-secondary: #212121;
+  --color-text-tertiary: #333;
+
+  --color-border-primary: #333;
+
+  --color-error: #f10e0e;
+  --color-green: #01e056;
+
+  --font-size-xsmall: 13px;
+  --font-size-small: 15px;
+  --font-size-medium: 18px;
+  --font-size-large: 24px;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 500;
+  --font-weight-bold: 700;
+
+  --border-radius-small: 8px;
+  --border-radius-medium: 16px;
+  --border-radius-large: 24px;
+  --color-btn: #100f1f;
+}
+
+/* Dark Mode Overrides */
+.dark-mode {
+  --color-bg-primary: #100f1f;
+  --color-bg-secondary: #161525;
+  --color-bg-tertiary: #2a2a2a;
+
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #bdbdbd;
+  --color-text-tertiary: #9e9e9e;
+
+  --color-border-primary: #9e9e9e;
+}
+
+/* Apply Colors */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Example Usage */
+h1 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+p {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.small-text {
+  font-size: var(--font-size-small);
+  color: var(--color-text-tertiary);
+}
+/* Minimize the scrollbar */
+::-webkit-scrollbar {
+  width: 2px; /* very small vertical scrollbar */
+  height: 2px; /* very small horizontal scrollbar */
+}
+
+/* Hide the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: transparent; /* transparent track */
+}
+
+/* Hide the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* transparent thumb */
+}

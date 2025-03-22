@@ -1,0 +1,169 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height));
+  width: 100vw;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--color-bg-primary);
+  /* background-image: url("../assets/homeWallpaper.webp"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.right {
+  flex: 1;
+  border-radius: var(--border-radius-large);
+
+  height: 200px;
+  width: 100%;
+
+  padding-left: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .left {
+    width: 33.33%;
+  }
+}
+
+.box {
+  flex: 1;
+
+  border-radius: var(--border-radius-large);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.Emibox {
+  flex: 1;
+  border-radius: var(--border-radius-large);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.optionButton {
+  font-size: 4rem;
+  padding: 1rem;
+  border-radius: var(--border-radius-large);
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  font-weight: var(--font-weight-regular);
+}
+
+/* Medium screens (Tablets) */
+@media (max-width: 1024px) {
+  .optionButton {
+    font-size: 3rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Small screens (Mobile) */
+@media (max-width: 768px) {
+  .optionButton {
+    font-size: 2rem;
+    padding: 0.6rem;
+  }
+}
+
+/* Extra Small screens */
+@media (max-width: 480px) {
+  .optionButton {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}
+
+.optionButton:hover {
+  transform: scale(1);
+  padding-left: 50px;
+  color: rgb(21, 150, 193);
+  font-weight: var(--font-weight-bold);
+}
+
+.h2 {
+  font-size: var(--font-size-large);
+  text-align: center;
+  padding: 1rem;
+}
+.instructionsList {
+  list-style-type: disc;
+  padding-left: 50px;
+  font-size: var(--font-size-large);
+  color: var(--color-text-primary);
+  overflow-y: auto;
+  height: 200px;
+}
+
+/* Medium screens (Tablets) */
+@media (max-width: 1024px) {
+  .instructionsList {
+    font-size: calc(var(--font-size-large) * 0.9);
+    padding-left: 40px;
+  }
+}
+
+/* Small screens (Mobile) */
+@media (max-width: 768px) {
+  .instructionsList {
+    font-size: calc(var(--font-size-large) * 0.8);
+    padding-left: 30px;
+  }
+}
+
+/* Extra Small screens */
+@media (max-width: 480px) {
+  .instructionsList {
+    font-size: calc(var(--font-size-large) * 0.7);
+    padding-left: 20px;
+  }
+}
+
+.instructionsList li {
+  margin-bottom: 10px;
+  line-height: 2;
+}
+
+.subOptionsContainer {
+  position: absolute;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.subOptionButton {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+}
+
+.subOptionButton:hover {
+  background-color: var(--color-background-hover);
+}
+
+.backButton {
+  margin-top: 1rem;
+  background-color: var(--color-background-secondary);
+}

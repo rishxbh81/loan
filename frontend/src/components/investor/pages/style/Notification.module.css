@@ -1,0 +1,101 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--header-height));
+}
+
+.header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.title {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  max-width: 1000px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  color: black;
+  text-align: center;
+}
+
+.p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.ul {
+  list-style-type: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-x: scroll;
+}
+
+.li {
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profileSection {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.contactInfo {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .contactInfo {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.contactInfo p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.notificationPreference {
+  margin-top: 1rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}

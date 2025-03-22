@@ -1,0 +1,92 @@
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+
+  margin-top: -50px;
+}
+@media (min-width: 768px) {
+  .contentWrapper {
+    justify-content: center;
+    height: calc(100vh - var(--header-height));
+  }
+}
+@media (max-width: 760px) {
+  .contentWrapper {
+    padding-top: 60px;
+  }
+}
+
+.stepperWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.formWrapper {
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  height: 60%;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-primary);
+  justify-content: center;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.buttonBack {
+  background-color: #ccc;
+}
+
+.buttonNext {
+  background-color: #1f4a21;
+  color: white;
+}
+
+.stepIcon {
+  margin: 0 10px;
+  color: var(--color-text-primary);
+}
+
+.stepIconActive {
+  color: var(--color-green);
+}
+
+.stepIconInactive {
+  color: #ccc;
+}
+
+.stepLine {
+  height: 2px;
+  flex-grow: 1;
+  width: 45px;
+}
+
+.stepLineActive {
+  background-color: green;
+}
+
+.stepLineInactive {
+  background-color: #ccc;
+}

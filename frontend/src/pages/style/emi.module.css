@@ -1,0 +1,175 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  height: calc(100vh - var(--header-height));
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.title {
+  font-size: var(--font-size-large);
+  text-align: center;
+  padding: 10px;
+  color: #212121;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Add these media queries at the bottom of the file */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: var(--font-size-large);
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-small);
+    padding: 6px;
+  }
+}
+label {
+  color: #333;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-medium);
+  padding-left: 10px;
+}
+.calculator {
+  width: 60%;
+  background: #f9f9f9;
+  padding: 10px;
+  color: #212121;
+  border-radius: var(--border-radius-large);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputGroup {
+  margin-bottom: 15px;
+}
+.inputGroupTenure {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.inputGroupTenure input {
+  width: 50%;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center;
+}
+
+.resultContainer p {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.resultContainer strong {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+
+.resultContainer p span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Charts - Right Side */
+.chartsContainer {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  user-select: none;
+}
+
+/* Adjust Donut Chart Size */
+.chartBox {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-width: 350px;
+  width: 100%;
+  display: grid;
+  place-items: center; /* Centers both horizontally and vertically */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .mainContent {
+    flex-direction: row;
+  }
+
+  .calculator {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .calculator,
+  .chartsContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .chartsContainer {
+    flex-direction: column;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.infoIcon {
+  font-size: 20px;
+  color: #1890ff;
+  cursor: help;
+}
+
+.infoIcon:hover {
+  color: #40a9ff;
+}

@@ -1,0 +1,89 @@
+.dashboardContainer {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  user-select: none;
+}
+.title {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+@media (min-width: 768px) {
+  .dashboardContainer {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboardContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cardTitle {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  color: #0f0f0f;
+}
+
+.cardValue {
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+  color: #212121;
+}
+
+/* Reduce font size on smaller screens */
+@media (max-width: 768px) {
+  .cardValue {
+    font-size: 2rem;
+  }
+}
+
+.chartContainer {
+  grid-column: span 2;
+  background: white;
+  padding: 16px;
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* On smaller screens, make the charts span full width */
+@media (max-width: 768px) {
+  .chartContainer {
+    grid-column: span 1;
+  }
+}
+
+.chartTitle {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 10px;
+  color: #0f0f0f;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+/* Adjust button size on mobile */
+@media (max-width: 408px) {
+  .buttonContainer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+@media (min-width: 408px) {
+  .buttonContainer {
+    flex-direction: row;
+    gap: 8px;
+  }
+}

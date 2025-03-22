@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--header-height));
+  background-color: var(--color-bg-primary);
+  padding: 16px;
+  user-select: none;
+  flex-direction: column;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--header-height));
+}
+.Ftitle {
+  color: #212121;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.title {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+.card {
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border-radius: var(--border-radius-medium);
+  background-color: #fbfeff;
+  color: #0f0f0f;
+  padding: clamp(16px, 2.5vw, 24px);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 50px;
+}
+
+/* Hover effect for a smooth scale transformation */
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) {
+  .card {
+    max-width: 500px;
+    padding: 20px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .card {
+    width: 350px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+}
+
+.subtitle {
+  color: #333;
+  text-align: center;
+  font-size: var(--font-size-medium);
+  margin-top: 8px;
+}
+
+.emojiContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 16px;
+  height: 70px;
+  overflow-x: scroll;
+}
+
+.emojiButton {
+  font-size: 2rem;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.emojiButton:hover {
+  background-color: #d1d5db;
+}
+
+.selectedEmoji {
+  background-color: #a7f3d0 !important;
+}
+
+.selectedLabel {
+  text-align: center;
+  color: #212121;
+  margin-top: 8px;
+}
+
+.textarea {
+  width: 100%;
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+  border: 1px solid #34d399;
+}
+
+.textarea:focus {
+  border-color: #34d399;
+  box-shadow: 0 0 5px #34d399;
+}
+
+.submitButton {
+  margin-top: 16px;
+}

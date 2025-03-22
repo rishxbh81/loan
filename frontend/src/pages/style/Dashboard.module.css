@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  user-select: none;
+  position: relative; /* Default position for small screens */
+  padding-top: var(--header-height); /* Prevents overlap with header */
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--header-height));
+}
+
+@media (min-width: 1068px) {
+  .container {
+    justify-content: center;
+    height: calc(100vh - var(--header-height));
+    position: absolute; /* Apply absolute positioning on large screens */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 0; /* Remove padding since it's centered */
+  }
+}
+
+h1 {
+  color: var(--color-text-primary);
+}
+
+.header {
+  font-size: var(--font-size-large);
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  padding: 10px;
+}
+
+.leftSection,
+.rightSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardArea,
+.rightSection,
+.btnSection {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.btnSection {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 639px) {
+  .cardArea,
+  .rightSection,
+  .btnSection {
+    flex-direction: column;
+  }
+}
+@media (min-width: 1024px) {
+  .rightSection {
+    flex-direction: column;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .rightSection {
+    flex-direction: row;
+  }
+  .main {
+    flex-direction: column;
+  }
+}

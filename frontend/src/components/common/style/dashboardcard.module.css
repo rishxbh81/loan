@@ -1,0 +1,123 @@
+.card {
+  padding: 1rem;
+  background-color: #f3ecfa;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 300px;
+  height: 150px;
+  border-radius: var(--border-radius-large);
+}
+
+.main {
+  height: 350px;
+}
+
+.title {
+  align-items: center;
+  bottom: 10px;
+}
+.titleText {
+  color: #333;
+  font-size: var(--font-size-medium);
+  display: flex;
+  font-weight: var(--font-weight-bold);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.value {
+  color: #333;
+  font-size: 6rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 22px;
+}
+.valueCustom {
+  color: #333;
+  font-size: 3rem;
+  overflow: hidden;
+  font-weight: 700;
+  text-align: center;
+}
+
+.valueTitle {
+  color: #333;
+  text-align: center;
+  margin-top: -20px;
+}
+.desc {
+  font-size: var(--font-size-small);
+}
+.titleTextCustom {
+  color: #333;
+  font-size: var(--font-size-large);
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.divider {
+  width: 100%; /* Make the line span the full width */
+  border-top: 3px solid #0100005d; /* Create a thin, light gray line */
+
+  margin-top: 5px; /* Add some spacing above and below the line */
+}
+.cardCustom {
+  padding: 0.4rem;
+  background-color: #f3ecfa;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 610px;
+  height: 150px;
+  border-radius: var(--border-radius-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  margin-top: -15px;
+}
+
+.dataCustom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 70px;
+  margin-top: -10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cardCustom {
+    width: 100%;
+    height: auto;
+  }
+
+  .dataCustom {
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 639px) {
+  .cardCustom {
+    width: 100%;
+    height: auto;
+  }
+
+  .dataCustom {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
