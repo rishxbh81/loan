@@ -6,7 +6,8 @@ import { Loader } from "../components/common/Loader";
 import { showToast } from "../utils/toastUtils";
 import { Button } from "../components/common/Button";
 import { CalendarIcon } from "../components/common/assets";
-import Btn from "../components/common/Btn";
+
+import { Button } from "../components/common/Button";
 import { UpdateIcon } from "../components/common/assets";
 import { API_BASE_URL } from "../config";
 
@@ -170,11 +171,7 @@ const UpdateLoanDetails = () => {
           </div>
 
           <div className={styles.update}>
-            <Btn
-              label="Update Loan"
-              onClick={handleUpdate}
-              icon={<UpdateIcon />}
-            />
+            <Button text="Update Loan" onClick={handleUpdate} />
           </div>
         </>
       )}

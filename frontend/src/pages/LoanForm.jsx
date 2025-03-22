@@ -6,7 +6,8 @@ import styles from "../Styles/LoanForm.module.css";
 import { showToast } from "../utils/toastUtils";
 import { Loader } from "../components/common/Loader";
 import { CalendarIcon, Drafticon, Infoicon } from "../components/common/assets";
-import Btn from "../components/common/Btn";
+
+import { Button } from "../components/common/Button";
 import { API_BASE_URL } from "../config";
 
 const LoanForm = () => {
@@ -37,8 +38,8 @@ const LoanForm = () => {
 
     // Validate all required fields
     if (!amount || !startDate || !endDate || !interestRate || !loanType) {
-        showToast("error", "Please fill all the required fields.");
-        return;
+      showToast("error", "Please fill all the required fields.");
+      return;
     }
 
     const parsedAmount = parseFloat(amount);
@@ -319,11 +320,7 @@ const LoanForm = () => {
           </div>
 
           <div className={styles.buttonContainer}>
-            <Btn
-              label="Save Draft"
-              onClick={handleSaveDraft}
-              icon={<Drafticon />}
-            />
+            <Button text="Save Draft" onClick={handleSaveDraft} />
           </div>
         </>
       )}

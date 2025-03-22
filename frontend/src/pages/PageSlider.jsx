@@ -3,7 +3,8 @@ import React, { useState, Suspense } from "react";
 import styles from "../Styles/PageSlider.module.css";
 import { UserIcon, ParentIcon } from "../components/common/assets";
 import { Loader } from "../components/common/Loader";
-import Btn from "../components/common/Btn";
+
+import { Button } from "../components/common/Button";
 
 const File = React.lazy(() => import("./File"));
 const GuaranteePage = React.lazy(() => import("./GuaranteePage"));
@@ -30,10 +31,9 @@ const PageSlider = () => {
         {activePage === "file" ? <File /> : <GuaranteePage />}
       </Suspense>
 
-      <Btn
-        label={activePage === "file" ? "Guarantee" : "User"}
+      <Button
+        text={activePage === "file" ? "Guarantee" : "User"}
         onClick={handleTogglePage}
-        icon={getIcon()}
       />
     </div>
   );
