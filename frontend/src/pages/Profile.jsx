@@ -17,6 +17,8 @@ import {
 } from "../components/helper/profileService";
 import styles from "../Styles/Profile.module.css";
 import { showToast } from "../utils/toastUtils";
+import { clearTokens } from "../utils/authUtils"; // Ensure this import exists
+
 const Profile = () => {
   const navigate = useNavigate();
 
@@ -27,7 +29,6 @@ const Profile = () => {
   });
 
   const [formData, setFormData] = useState({});
-
   const [isEditing, setIsEditing] = useState(false);
   const [updatedProfile, setUpdatedProfile] = useState({
     name: "",
@@ -39,12 +40,14 @@ const Profile = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [otpMessage, setOtpMessage] = useState("");
   const [loading, setLoading] = useState(true);
+
   const handleLogout = () => {
     clearTokens();
-    setIsAuthenticated(false);
+    setIsAuthenticated(false); // Ensure `setIsAuthenticated` is part of your auth logic
     navigate("/login");
-    showToast("info", "Session expired , please login again!");
+    showToast("info", "Session expired, please login again!");
   };
+
   const formFields = inputFieldConfig(false, true, formData);
   const steps = [
     { title: "Personal Information", fields: formFields.slice(0, 8) },
@@ -60,7 +63,9 @@ const Profile = () => {
   ];
 
   const handleDropdownChange = (fieldId, selectedOption) => {
-    setUpdatedProfile({ ...updatedProfile, [fieldId]: selectedOption });
+    if (selectedOption) {
+      setUpdatedProfile({ ...updatedProfile, [fieldId]: selectedOption });
+    }
   };
 
   const nextStep = () => setStep(step + 1);
@@ -126,37 +131,13 @@ const Profile = () => {
     const accessToken = localStorage.getItem("accessToken");
     const payload = {
       profile: updatedProfile,
+      email:
+        updatedProfile.email !== profile.email
+          ? updatedProfile.email
+          : undefined,
+      otp: updatedProfile.email !== profile.email ? otp : undefined,
     };
 
-    if (updatedProfile.email !== profile.email) {
-      payload.email = updatedProfile.email;
-      payload.otp = otp;
-    }
-
-    try {
-      const response = await fetch(`${API_BASE_URL}auth/update-profile`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        const updatedData = await response.json();
-        setProfile(updatedData);
-        setIsEditing(false);
-        setOtp("");
-        setOtpSent(false);
-        showToast("success", "Profile updated successfully!");
-      } else {
-        showToast("error", "Failed to update profile. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error updating profile:", error);
-      showToast("error", "An error occurred. Please try again.");
-    }
     updateProfile(
       payload,
       accessToken,
@@ -166,7 +147,12 @@ const Profile = () => {
       setIsEditing,
       setOtp,
       setOtpSent
-    );
+    )
+      .then(() => showToast("success", "Profile updated successfully!"))
+      .catch((error) => {
+        console.error("Error updating profile:", error);
+        showToast("error", "Failed to update profile. Please try again.");
+      });
   };
 
   return (
@@ -183,19 +169,18 @@ const Profile = () => {
             </div>
             <div className={styles.profileHeader}>
               <div className={styles.cardImage}>
-                {" "}
                 {getInitials(profile.name)}
               </div>
             </div>
             <h2 className={styles.profileName}>{profile.name || "N/A"}</h2>
-            <p className={styles.profileemail}>{profile.email || "N/A"}</p>
+            <p className={styles.profileEmail}>{profile.email || "N/A"}</p>
             <p className={styles.profileLocation}>{profile.address || "N/A"}</p>
 
             <div className={styles.buttonContainer}>
               <Button
                 text="Edit Profile"
                 onClick={() => {
-                  navigate('/profile/update');  // Navigate to profile update page
+                  navigate("/profile/update");
                 }}
               />
             </div>
@@ -206,10 +191,7 @@ const Profile = () => {
           {steps.map((stepData, index) =>
             step === index + 1 ? (
               <div key={index} className={styles.stepContainer}>
-                {/* Title at the top and centered */}
                 <h3 className={styles.title}>{stepData.title}</h3>
-
-                {/* Input fields in a 2x1 grid */}
                 <div className={styles.fieldsContainer}>
                   {stepData.fields.map((field) =>
                     field.type === "file" ? (
@@ -224,50 +206,27 @@ const Profile = () => {
                           )
                         }
                       />
-                    ) : field.type === "select" ? (
-                      <Dropdown
-                        label={field.label}
-                        key={field.id}
-                        options={field.options}
-                        selectedValue={updatedProfile[field.id]}
-                        onChange={(selected) =>
-                          handleDropdownChange(field.id, selected)
-                        }
-                      />
                     ) : (
                       <CustomTextInput
                         key={field.id}
-                        config={{
-                          ...field,
-                          value: updatedProfile[field.id] || "",
-                          disabled: otpSent && field.id === "email",
-                        }}
-                        onChange={handleInputChange}
+                        label={field.label}
+                        value={updatedProfile[field.id] || ""}
+                        onChange={(e) => handleInputChange(e, field.id)}
                       />
                     )
-                  )}
-                </div>
-
-                {/* Buttons */}
-                <div className={styles.buttonContainer}>
-                  {step > 1 ? (
-                    <Button text="Previous" onClick={prevStep} />
-                  ) : (
-                    <Button
-                      text="Cancel"
-                      onClick={() => setIsEditing(false)}
-                      className={styles.cancelButton}
-                    />
-                  )}
-                  {step < steps.length ? (
-                    <Button text="Next" onClick={nextStep} />
-                  ) : (
-                    <Button text="Submit" type="submit" />
                   )}
                 </div>
               </div>
             ) : null
           )}
+          <div className={styles.buttonGroup}>
+            {step > 1 && <Button text="Previous" onClick={prevStep} />}
+            {step < steps.length ? (
+              <Button text="Next" onClick={nextStep} />
+            ) : (
+              <Button text="Submit" type="submit" />
+            )}
+          </div>
         </form>
       )}
     </div>
