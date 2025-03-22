@@ -6,7 +6,7 @@ import { inputFieldConfig } from "../config/inputFieldConfig";
 import { apiprof, mailotp, prupdate } from "../utils/Api";
 import { Loader } from "../components/common/Loader";
 import { CustomFileInput } from "../components/document/CustomFileInput";
-import Dropdown from "../components/common/Dropdown";
+
 import LogoutButton from "./LogoutButton";
 import { API_BASE_URL } from "../config";
 
