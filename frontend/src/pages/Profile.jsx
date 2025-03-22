@@ -17,7 +17,7 @@ import {
 } from "../components/helper/profileService";
 import styles from "../Styles/Profile.module.css";
 import { showToast } from "../utils/toastUtils";
-import { clearTokens } from "../utils/authUtils"; // Ensure this import exists
+import { clearTokens } from "../utils/tokenUtils"; // Ensure this import exists
 
 const Profile = () => {
   const navigate = useNavigate();
